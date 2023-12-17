@@ -1,0 +1,30 @@
+<mat-accordion>
+    <div class="links"></div>
+    <a href="dashboard/books" class="link">home/wishlist</a>
+    <div class="margin">
+        <mat-expansion-panel hideToggle class="b" expanded="true">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="cart">
+                    My WishList ({{wishlistarray.length}} items)
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div *ngFor="let wishlistItem of wishlistarray" class="container">
+                <div class="main" href="dashboard/bookview">
+                    <div class="imagefolder">
+                        <img class="image" src="{{wishlistItem.book.bookImage}}">
+                    </div>
+                    <div class="main1">
+                        <p class="title">{{wishlistItem.book.bookName}}</p>
+                        <p class="author">{{wishlistItem.book.bookAuthor}}</p>
+                        <p class="price">Rs. {{wishlistItem.book.bookPrice}}</p>
+                    </div>
+                </div>
+                <div class="button">
+                    <a mat-flat-button color="warn" class="input" (click)="Remove(wishlistItem.bookId)">Remove</a>
+                    <!-- <a mat-flat-button color="primary" class="input" (click)="MoveToCart(wishlistItem.bookId)">Add To
+                        Cart</a> -->
+                </div>
+            </div>
+        </mat-expansion-panel>
+    </div>
+</mat-accordion>

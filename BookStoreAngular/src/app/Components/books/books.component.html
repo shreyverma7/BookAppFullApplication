@@ -1,0 +1,23 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <div class="header">Books({{booklistarray.length}} items)</div>
+    <div class="main">
+        <div class="container" *ngFor="let book of booklistarray | search: searchtext">
+            <a href="dashboard/bookview" (click)="boo(book.bookId)">
+                <div class="books">
+                    <img [src]="book.bookImage" class="image">
+                </div>
+                <div class="title">{{book.bookName}}</div>
+                <div class="author">{{book.bookAuthor}}</div>
+                <div class="common">
+                    <div class=rating>{{book.rating}}
+                        <i class="material-icons">star</i>
+                    </div>
+                    ({{book.bookCount}})
+                </div>
+                <div class="pricetag">
+                  <p class="price">Rs. {{ book.bookPrice }} </p>
+                  <s class="strikedprice">{{ book.bookPrice+400}}</s>
+                </div>
+            </a>
+        </div>
+    </div>

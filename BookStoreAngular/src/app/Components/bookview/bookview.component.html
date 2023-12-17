@@ -1,0 +1,80 @@
+<div class="links">
+  <a href="dashboard/books" class="link">home/cart</a>
+</div>
+<div class="main">
+  <div class="container">
+    <div class="book">
+      <img class="image" src="{{ booklistarray[0].bookImage }}" />
+    </div>
+    <a
+      mat-stroked-button
+      id="addToBagButton"
+      class="notify"
+      style="color: white"
+      (click)="AddToCart()"
+      >ADD TO BAG</a
+    >
+    <a
+      mat-stroked-button
+      class="wish"
+      style="color: white"
+      (click)="wishlist()"
+      [disabled]="wish"
+    >
+      <i class="material-icons">favorite</i>WISHLIST</a
+    >
+  </div>
+  <div class="container1">
+    <p class="title">{{ booklistarray[0].bookName }}</p>
+    <p class="author">{{ booklistarray[0].bookAuthor }}</p>
+    <div class="rate">
+      <p class="rating">
+        {{ booklistarray[0].rating }}<i class="material-icons">star</i>
+      </p>
+      <p class="count">({{ booklistarray[0].bookCount }})</p>
+    </div>
+    <div class="pricetag">
+      <p class="price">Rs. {{ booklistarray[0].bookPrice }} </p>
+      <s class="strikedprice">{{ booklistarray[0].bookPrice+400}}</s>
+    </div>
+
+    <p class="border"></p>
+    <p class="titles">Book Detail</p>
+    <p class="tittlessub">{{ booklistarray[0].bookDescription }}</p>
+    <p class="border"></p>
+
+    <form [formGroup]="FeedbackForm">
+      <p class="description">Customer Feedback</p>
+      <div class="feed">
+        <p class="overall">Overall Rating</p>
+        <span
+          *ngFor="let star of stars; let i = index"
+          (click)="rateBook(i + 1)"
+        >
+          <i class="material-icons icon">{{ star ? "star" : "star_border" }}</i>
+        </span>
+        <textarea formControlName="feedback"></textarea>
+        <a
+          mat-raised-button
+          color="primary"
+          class="submit"
+          (click)="onSubmit()"
+          [disabled]="FeedbackForm.invalid || !stars.includes(true)"
+          >Submit</a
+        >
+      </div>
+    </form>
+
+    <div class="feedback" *ngFor="let feeds of Feedbackarray">
+      <p class="name">{{ feeds.userRegister.fullName }}</p>
+      <div class="stars">
+      <span
+        *ngFor="let star of getStarsFromRating(feeds.rating); let i = index"
+      >
+        <i class="material-icons icons" style="color: rgb(226, 226, 43);">{{ star ? "star" : "star_border" }}</i>
+      </span>
+    </div>
+      <p class="feedbackdescription">{{ feeds.customerDescription }}</p>
+    </div>
+  </div>
+</div>

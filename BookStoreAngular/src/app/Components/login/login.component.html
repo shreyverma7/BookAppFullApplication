@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<form [formGroup]="loginForm">
+  <div class="maininput">
+    <mat-hint class="input">Email Id</mat-hint>
+    <input type="text" class="input" style="height: 20px;" formControlName="email">
+  </div>
+  <div class="maininput2">
+    <mat-hint class="input">Password</mat-hint>
+    <div class="password-input input">
+      <input [type]="hide ? 'password' : 'text'" class="input-field" formControlName="password">
+      <button class="visibility-button" (click)="toggleVisibility()">
+        <i class="fa" [ngClass]="hide ? 'fa-eye-slash' : 'fa-eye'"></i>
+      </button>
+    </div>
+    <mat-hint class="forget">
+      <a href="forgetpassword"> Forget Password?</a>
+    </mat-hint>
+  </div>
+  <div class="maininput">
+    <a mat-flat-button style="background-color: #A03037; color: white;" class="button1" (click)="onSubmit()">Login</a>
+  </div>
+  <div class="maininput">
+    <p class="or"> OR
+    </p>
+  </div>
+  <div class="maininput1">
+    <a mat-flat-button href="register" color="primary" class="input1">FaceBook</a>
+    <a mat-stroked-button href="register" class="google">Google</a>
+  </div>
+</form>

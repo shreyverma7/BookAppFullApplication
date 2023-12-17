@@ -1,0 +1,129 @@
+.heading {
+  position: relative;
+  left: 170px;
+  top: 15px;
+  width: 150px;
+
+  font-size: 16px;
+  color: #878787  ;
+
+}
+
+.mywishlistcard {
+  margin-top: 5%;
+  margin-left: 177px;
+  width: 1022px;
+  height: 530px;
+  /* UI Properties */
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #E4E4E4;
+  box-shadow: 0px 0px 2px grey;
+  opacity: 1;
+
+  .titlefont {
+    top: 112px;
+    left: 177px;
+    width: 1022px;
+    height: 55px;
+    /* UI Properties */
+    background: #F5F5F5 0% 0% no-repeat padding-box;
+    border: 1px solid #E4E4E4;
+    border-radius: 1px;
+    opacity: 1;
+  }
+
+
+
+  .bookdetails {
+    margin-top: 2%;
+    margin-left: 4%;
+    margin-bottom: 7%;
+    width: 236px;
+    height: 89px;
+    /* UI Properties */
+    opacity: 1;
+    display: flex;
+
+
+    .img {
+      margin-top: 3%;
+      margin-left: 5%;
+      width: 65px;
+      height: 85px;
+      /* UI Properties */
+      background: transparent 0% 0% no-repeat padding-box;
+      opacity: 1;
+    }
+
+    .bookheader {
+      margin-top: 20px;
+      margin-left: 30px;
+      width: 133px;
+      height: 17px;
+      /* UI Properties */
+      text-align: left;
+      font: normal normal normal 14px/17px Lato;
+      letter-spacing: 0px;
+      color: #0A0102;
+      opacity: 1;
+    }
+
+    .deleteicon {
+      /* Layout Properties */
+      margin-top: 2px;
+      margin-left: 585%;
+      width: 25px;
+      height: 25px;
+      /* UI Properties */
+      background: white 0% 0% no-repeat padding-box;
+      opacity: 1;
+    }
+
+    .author {
+      margin-top: 5%;
+      font-size: 12px;
+      color: grey;
+    }
+
+    .price {
+      margin-top: 5%;
+      font: normal normal bold 12px/16px Roboto;
+    }
+
+    .dates {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      gap: 10px;
+      width: 750px;
+      font: normal normal bold 15px/20px Roboto;
+      letter-spacing: 0px;
+      color: #0A0102;
+      opacity: 1;
+
+      .greenbox {
+        width: 10px;
+        height: 10px;
+        background: #26A541 0% 0% no-repeat padding-box;
+        border-radius: 10px;
+
+      }
+
+
+    }
+
+    .Addtocart {
+      // margin-top: 1px;
+      // margin-left: 270%;
+      width: 20px;
+      // height: 30px;
+      // /* UI Properties */
+      background: rgb(92, 92, 177) 0% 0% no-repeat padding-box;
+      color: #F5F5F5;
+      border-radius: 12px;
+      // opacity: 1;
+    }
+
+  }
+
+}

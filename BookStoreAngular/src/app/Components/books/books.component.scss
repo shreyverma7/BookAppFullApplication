@@ -1,0 +1,115 @@
+.main {
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: flex;
+  gap: 20px;
+  box-shadow: 30%;
+  width: 95%;
+  align-items: left;
+  margin-left: 60px;
+}
+.pricetag{
+  display: flex;
+  margin-left: 10px;
+
+}
+.strikedprice{
+  display: flex;
+  margin-left: 10px;
+  margin-top: 3px;
+  align-items:baseline;
+  //background-color: #388E3C;
+  font: 12px arPreahvihe;
+  color: rgb(165, 53, 105);
+}
+
+.container {
+  width: 233px;
+  height: 275px;
+  margin-top: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.books {
+  display: flex;
+  flex-direction: column;
+  width: 233px;
+  height: 172px;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  background-color: #F5F5F5;
+}
+
+
+.image {
+  height: 135px;
+  width: 105px;
+}
+
+.title {
+  margin-left: 10px;
+  font: normal normal normal 14px/19px Roboto;
+  letter-spacing: 0px;
+  color: #0A0102;
+  opacity: 1;
+  margin-bottom: 2px;
+}
+
+.author {
+  margin-left: 10px;
+  font: normal normal normal 10px/13px Roboto;
+  letter-spacing: 0px;
+  color: #878787;
+  opacity: 1;
+  margin-bottom: 2px;
+}
+
+.rating {
+  background: #388E3C 0% 0% no-repeat padding-box;
+  border-radius: 1px;
+  opacity: 1;
+  height: 20px;
+  width: 33px;
+  color: white;
+  margin-bottom: 2px;
+}
+
+.common {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2px;
+  gap: 5px;
+}
+
+.material-icons {
+  font-size: 8px;
+  color: white;
+  /* Adjust icon color */
+}
+
+.rate {
+  margin-left: 10px;
+  font: normal normal bold 12px/16px Roboto;
+  letter-spacing: 0px;
+  color: #0A0102;
+  opacity: 1;
+}
+
+.header {
+  font-size: 16px;
+  margin-left: 60px;
+  margin-top: 15px;
+  color: #878787  ;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container:hover {
+  box-shadow: 0 3px 6px 0 black;
+}

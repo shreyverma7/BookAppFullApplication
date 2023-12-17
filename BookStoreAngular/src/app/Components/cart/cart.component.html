@@ -1,0 +1,122 @@
+<mat-accordion>
+    <div class="links"></div>
+    <a href="dashboard/books" class="link">home/cart</a>
+    <div style="margin-top: 20px;">
+
+        <mat-expansion-panel hideToggle class="b" expanded="true">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="cart">
+                    My Cart ({{cartlistarray.length}} items)
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div *ngFor="let cartlistItem of cartlistarray" class="container">
+                <div class="main">
+                    <div class="imagefolder">
+                        <img class="image" src="{{cartlistItem.book.bookImage}}">
+
+                    </div>
+                    <div class="main1">
+                        <p class="title">{{cartlistItem.book.bookName}}</p>
+                        <p class="author">by {{cartlistItem.book.bookAuthor}}</p>
+                        <p class="price">Rs. {{cartlistItem.book.bookPrice}}</p>
+                        <div class="book-counter">
+                            <button (click)="decrement()" class="minus">-</button>
+                            <span class="count">{{numberOfBooks}}</span>
+                            <button (click)="increment()" class="minus">+</button>
+                            <button class="remove" color="warn" (click)="remove(cartlistItem.bookId)">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a mat-flat-button color="primary" class="input" (click)="openCustomerPanel(customerPanel)">Place Order</a>
+        </mat-expansion-panel>
+
+        <div style="margin-top: 20px;">
+            <mat-expansion-panel hideToggle class="b" #customerPanel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="cart">
+                        Customer Details
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <a mat-flat-button class="newaddress" color="warn" href="dashboard/profile">Add New Address</a>
+                <!-- <div class="number">
+                    <p class="full">Full Name</p>
+                    <p class="full">Mobile Number</p>
+                </div>
+                <div>
+                    <input type="text" class="fulltext" placeholder=" Full Name" #fullnameInput
+                        [value]="selectedBook?.fullname">
+                    <input type="text" class="fulltext" placeholder=" Mobile Number" #mobile
+                        [value]="selectedBook?.mobilenum">
+                </div> -->
+                <div *ngFor="let books of personalarray; let i =index">
+                    <div class="edit">
+                        <label>
+                            <input type="radio" name="i" class="radio" [checked]="i === 0" [value]="books.customerid"
+                                (click)="toggleOtherDetailsVisibility(books.customerid,books.fullname,books.mobilenum)">
+                            {{i+1}}.   <!--{{books.types.typeName}} -->
+                        </label>
+                        <div *ngIf="selectedItem === books.customerid">
+                            <p class="editbutton" (click)="toggleEditMode(books.customerid)">{{
+                                isEditMode[books.customerid]? 'Cancel' : 'Edit' }}</p>
+                        </div>
+                    </div>
+
+                    <div >
+                      <div class="number" *ngIf="selectedItem === books.customerid">
+                        <p class="full">Full Name</p>
+                        <p class="full">Mobile Number</p>
+                    </div>
+                    <div  *ngIf="selectedItem === books.customerid">
+                        <input type="text" class="fulltext" placeholder=" Full Name" #fullnameInput
+                            [value]="books.fullName" [disabled]="!isEditMode[books.customerid]">
+                        <input type="text" class="fulltext" placeholder=" Mobile Number" #mobile
+                            [value]="books.mobileNumber" [disabled]="!isEditMode[books.customerid]">
+                    </div>
+                        <p class="full Address">Address</p>
+                        <textarea class="addresstext" placeholder=" Address" #address [value]="books.address"
+                            [disabled]="!isEditMode[books.customerid]"></textarea>
+                        <div class="number" *ngIf="selectedItem === books.customerid">
+                            <p class="full"  >City/Town</p>
+                            <p class="full">State</p>
+                        </div>
+                        <div *ngIf="selectedItem === books.customerid">
+                            <input type="text" class="fulltext" placeholder=" City/Town" #city [value]="books.cityOrTown"
+                                [disabled]="!isEditMode[books.customerid]">
+                            <input type="text" class="fulltext" placeholder=" State" #state [value]="books.state"
+                                [disabled]="!isEditMode[books.customerid]">
+                            <a mat-flat-button color="primary" class="update" [disabled]="!isEditMode[books.customerid]"
+                                (click)="onSave()">Update</a>
+                        </div>
+                    </div>
+                </div>
+                <a mat-flat-button color="primary" class="input" (click)="openOrderPanel(OrderPanel)">Continue</a>
+            </mat-expansion-panel>
+        </div>
+
+    </div>
+    <div style="margin-top: 20px;">
+        <mat-expansion-panel hideToggle class="b" #OrderPanel>
+            <mat-expansion-panel-header>
+                <mat-panel-title class="cart">
+                    Order Summary
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div *ngFor="let cartlistItem of cartlistarray" class="container">
+                <div class="main">
+                    <div class="imagefolder">
+                        <img class="image" src="{{cartlistItem.book.bookImage}}">
+
+                    </div>
+                    <div class="main1">
+                        <p class="title">{{cartlistItem.book.bookName}}</p>
+                        <p class="author">by {{cartlistItem.book.bookAuthor}}</p>
+                        <p class="price">Rs. {{cartlistItem.book.bookPrice}}</p>
+                    </div>
+                </div>
+            </div>
+            <a mat-flat-button color="primary" class="input" routerLink="/dashboard/summary" >CheckOut</a>
+            <!-- <a mat-flat-button color="primary" class="input" routerLink="/ordersummary" (click)="Oncheckout()">CheckOut</a> -->
+        </mat-expansion-panel>
+    </div>
+</mat-accordion>

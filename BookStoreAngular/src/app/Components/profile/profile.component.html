@@ -1,0 +1,56 @@
+
+<div *ngFor="let book of personalarray.slice(0,1);">
+    <div class="links"></div>
+    <a href="dashboard/books" class="link">home/Profile</a>
+    <div class="main">
+      <div class="edit">
+            <p class="personal">Personal Details</p>
+            <p class="editbutton" (click)="toggleEditMode()">{{ isEditMode ? '' : 'Edit' }}</p>
+          </div>
+        <p class="fname">Full Name</p>
+        <input type="text" class="field" placeholder="Full Name" #fullnameInput  [value]="book.fullName"
+            [disabled]="!isEditMode">
+        <p class="fname">Email Id</p>
+        <input type="text" class="field" placeholder="Email id" #emailInput value="shrey@bookstore.com" [disabled]="!isEditMode">
+        <p class="fname">Mobile</p>
+        <input type="text" class="field" placeholder="Mobile Number" #mobileNumberInput [value]="book.mobileNumber"
+            [disabled]="!isEditMode">
+    </div>
+    <div class="main1">
+        <div class="add">
+            <div class="edit">
+                <p class="personal">Address Details</p>
+            </div>
+            <button class="new" (click)="addNewAddress()">Add New Address</button>
+        </div>
+        <p class="fname">Address</p>
+        <textarea type="text" class="address" placeholder="Address" #address [value]="book.address"
+            [disabled]="!isEditMode"></textarea>
+        <div class="common">
+            <p class="fname">City/Town</p>
+            <p class="fname">State</p>
+        </div>
+        <div class="common1">
+            <input type="text" class="field1" placeholder="City/Town" #city [value]="book.cityOrTown" [disabled]="!isEditMode">
+            <input type="text" class="field1" placeholder="State" #state [value]="book.state" [disabled]="!isEditMode">
+        </div>
+        <p class="fname">Type</p>
+        <div>
+            <label>
+                <input type="radio" name="1" value="1" #homeRadio  [(ngModel)]="book.typeId" [disabled]="!isEditMode">
+                Home
+            </label>
+            <label>
+                <input type="radio" name="2" value="2" #workRadio  class="radio" [(ngModel)]="book.typeId"
+                    [disabled]="!isEditMode">
+                Work
+            </label>
+            <label>
+                <input type="radio" name="3" value="3"  #othersRadio class="radio" [(ngModel)]="book.typeId"
+                    [disabled]="!isEditMode">
+                Others
+            </label>
+        </div>
+        <a mat-flat-button color="primary" href="dashboard/books" class="save" [disabled]="!isEditMode" (click)="onSave()">Save</a>
+    </div>
+</div>

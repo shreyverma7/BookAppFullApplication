@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<form [formGroup]="RegisterForm">
+    <div class="maininput">
+        <mat-hint class="input">Full Name</mat-hint>
+        <input type="text" class="input" style="height: 20px;" formControlName="Fullname">
+    </div>
+    <div class="maininput2">
+        <mat-hint class="input">Email Id</mat-hint>
+        <input type="text" class="input" style="height: 20px;" formControlName="Emailid">
+    </div>
+    <div class="maininput2">
+        <mat-hint class="input">Password</mat-hint>
+        <div class="password-input input">
+            <input [type]="hide ? 'password' : 'text'" class="input-field" formControlName="password">
+            <button class="visibility-button" (click)="toggleVisibility()">
+                <i class="fa" [ngClass]="hide ? 'fa-eye-slash' : 'fa-eye'"></i>
+            </button>
+        </div>
+    </div>
+    <div class="maininput2">
+        <mat-hint class="input">Mobile Number</mat-hint>
+        <input type="text" class="input" style="height: 20px;" formControlName="number">
+    </div>
+    <div class="maininput">
+        <a mat-flat-button style="background-color: #A03037; color: white;" class="button1" (click)="onSubmit()">Sign
+            Up</a>
+    </div>
+</form>

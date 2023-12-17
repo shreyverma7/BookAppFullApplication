@@ -1,0 +1,56 @@
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/>
+<div class="main">
+  <div class="center-box">
+    <div class="header">
+      <img
+        src="http://res.cloudinary.com/doiyb9hon/image/upload/v1701578250/iieuzs0fcxwijsjgkhx3.png"
+        class="image"
+      />
+      <p class="book">BookStore</p>
+
+      <input
+        type="search"
+        class="search-button"
+        placeholder="Search"
+        (keyup)="SearchNotes($event)"
+      />
+      
+
+      <div class="icon1">
+        <a class="button" href="dashboard/wish">
+          <i class="material-icons">favorite</i>
+        </a>
+      </div>
+      <div class="icon1">
+        <a class="button" href="dashboard/cart">
+          <i class="material-icons">shopping_cart</i>
+        </a>
+      </div>
+
+      <div class="icon">
+        <a class="button" [matMenuTriggerFor]="beforeMenu">
+          <i class="material-icons">person</i>
+        </a>
+        <mat-menu #beforeMenu="matMenu" xPosition="before">
+          <a mat-menu-item href="dashboard/profile" class="profile"
+            ><i class="material-icons i">person</i> Profile</a
+          >
+          <!-- My order page need to done -->
+          <a mat-menu-item href="dashboard/order"
+            ><i class="material-icons i">shopping_cart</i> My Orders</a
+          >
+          <a mat-menu-item href="dashboard/wish"
+            ><i class="material-icons i">favorite</i> My WishList</a
+          >
+          <a mat-menu-item href="home/Log"
+            ><i class="material-icons i">logout</i> Logout</a
+          >
+        </mat-menu>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
